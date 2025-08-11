@@ -20,7 +20,7 @@
                 <h3>Welcome to your ultimate digital school experience where every choice has a consequence! </h3>
                 <p>In this game you will be put through a series of challenges for you to get through your school day. You will be tested on your ability to fit in to the ultimate school.</p>
 
-                <form name="name" method="post" onsubmit="return playername()">
+                <form name="name" method="post" onsubmit="return playername(event)">
                     <p>
                         What is your name?
                         <input type="text" id="username" name="name"/>
@@ -31,13 +31,34 @@
     </body>
 </html>
 <script>
-    
-    function playername() {
-        var username = document.name.name.value
-        //alert(username);
-        sessionStorage.setItem("name", username)
-        window.location = "level1.html";
-        return false;
-    }
+    const API_BASE = (window.API_BASE) || 'http://localhost:3001';
 
+    async function playername(e) {
+        if (e) e.preventDefault();
+        const username = document.name.name.value;
+        const trimmed = (username || '').trim();
+        if (!trimmed) {
+            alert('Please enter your name');
+            return false;
+        }
+        try {
+            const res = await fetch(`${API_BASE}/api/player`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: trimmed })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data?.error || 'Failed to create player');
+            sessionStorage.setItem("name", trimmed);
+            if (data.playerId) sessionStorage.setItem('playerId', data.playerId);
+            window.location = "level1.html";
+            return false;
+        } catch (err) {
+            console.error(err);
+            alert('Could not connect to backend. Proceeding without saving.');
+            sessionStorage.setItem("name", trimmed);
+            window.location = "level1.html";
+            return false;
+        }
+    }
 </script>

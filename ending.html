@@ -16,12 +16,57 @@
                 <h1 class="end">A Day in School</h1>
                 <h2 id="intro" class="end">!</h2>
                 <img src="images/diploma.png" alt="a diploma" width="300" class="end">
+                <div id="leaderboard" class="end"></div>
             </div>
     </body>
 
 </html>
 <script>
-    var username = sessionStorage.getItem("name");
-    var intro = document.getElementById("intro");
+    const API_BASE = (window.API_BASE) || 'http://localhost:3001';
+    const username = sessionStorage.getItem("name");
+    const intro = document.getElementById("intro");
     intro.innerHTML = "Congratulations " + username + "! You completed your day at school! Here's your diploma!";
+
+    async function submitCompletion() {
+        const playerId = sessionStorage.getItem('playerId');
+        try {
+            if (playerId) {
+                await fetch(`${API_BASE}/api/score`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ playerId, score: 1 })
+                });
+            }
+        } catch (e) {
+            console.warn('Could not save score:', e);
+        }
+    }
+
+    async function renderLeaderboard() {
+        const container = document.getElementById('leaderboard');
+        container.innerHTML = '<p>Loading leaderboard…</p>';
+        try {
+            const res = await fetch(`${API_BASE}/api/leaderboard`);
+            const data = await res.json();
+            if (!res.ok) throw new Error(data?.error || 'Failed to load leaderboard');
+            const rows = data.leaderboard || [];
+            if (rows.length === 0) {
+                container.innerHTML = '<p>No scores yet. Be the first!</p>';
+                return;
+            }
+            const list = document.createElement('ol');
+            for (const row of rows) {
+                const li = document.createElement('li');
+                li.textContent = `${row.name}: ${row.totalScore}`;
+                list.appendChild(li);
+            }
+            container.innerHTML = '<h3>Leaderboard</h3>';
+            container.appendChild(list);
+        } catch (e) {
+            container.innerHTML = '<p>Could not load leaderboard.</p>';
+        }
+    }
+
+    submitCompletion();
+    renderLeaderboard();
 </script>
