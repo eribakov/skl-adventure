@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charste="utf-8">
+        <title>
+            School Adventure
+        </title>
+        <link rel="stylesheet" href="css/main.css" type="text/css"/>
+        <style>
+        body {
+            background-color: #e9dbfa;
+            background-image: url(../ribe_A3_javascript_adventure/images/indexback.jpg);
+
+        }
+        </style>
+    </head>
+    <body>
+            <div id="container">
+                <h1>A Day in School</h1>
+                <h3>Welcome to your ultimate digital school experience where every choice has a consequence! </h3>
+                <p>In this game you will be put through a series of challenges for you to get through your school day. You will be tested on your ability to fit in to the ultimate school.</p>
+
+                <form name="name" method="post" onsubmit="return playername()">
+                    <p>
+                        What is your name?
+                        <input type="text" id="username" name="name"/>
+                    </p>
+                    <p><button type="submit" value="process">Submit</button></p>
+                </form>
+            </div>
+    </body>
+</html>
+<script>
+    
+    function playername() {
+        var username = document.name.name.value
+        //alert(username);
+        sessionStorage.setItem("name", username)
+        window.location = "level1.html";
+        return false;
+    }
+
+</script>
