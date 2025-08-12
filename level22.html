@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>School Adventure - Cafeteria</title>
+        <style>
+        #form1 {
+            display: none
+        }
+        #form2 {
+            display: none
+        }
+        #form3 {
+            display: none
+        }
+        #form4 {
+            display: none
+        }
+        #form5 {
+            display: none
+        }
+        body{
+            background-color: #e9dbfa;
+            background-image: url(../ribe_A3_javascript_adventure/images/cafeteriaback.jpg);
+        }
+        </style>
+        <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    </head>
+    <body>
+        <!--<div id="background">-->
+            <div id="container">
+                <h1>A Day in School</h1>
+                <h2 id="intro"></h2>
+                <p>Slide the slider to match the food placement</p>
+                <form name="food" method="post" onsubmit="return foodchoice()" id="startform">
+                    <p><input type="range" id="cafe" name="food" min="1" max="5" step="1" style="width:580px;"/></p>
+                    <img src="images/burger.png" alt="a burger" width="120">
+                    <img src="images/icecream.png" alt="ice cream" width="120">
+                    <img src="images/panini.png" alt="a panini sandwhich" width="120">
+                    <img src="images/pizza.png" alt="a pizza" width="120">
+                    <img src="images/salad.png" alt="a salad" width="120">
+                    <p><button type="submit" value="process">Submit Choice</button></p>
+                </form>
+                <h3 id="eat"></h3>
+
+                <form name="burger" method="post" onsubmit="return foodBurger()" id="form1">
+                    <p><input type="radio" id="ingredient1a" name="burger" value="lettuce">Lettuce</p>
+                    <p><input type="radio" id="ingredient1b" name="burger" value="ketchup">Ketchup</p>
+                    <p><input type="radio" id="ingredient1c" name="burger" value="apple">Apple</p>
+                    <p><input type="radio" id="ingredient1d" name="burger" value="cheese">Cheese</p>
+                    <p><button type="submit" value="process">Submit</button></p>
+                    <!-- Answer: c -->
+                </form>
+        
+                <form name="icecream" method="post" onsubmit="return foodIcecream()" id="form2">
+                    <p><input type="radio" id="ingredient2a" name="icecream" value="sprinkles">Sprinkles</p>
+                    <p><input type="radio" id="ingredient2b" name="icecream" value="whipped cream">Whipped Cream</p>
+                    <p><input type="radio" id="ingredient2c" name="icecream" value="chocolate">Chocolate</p>
+                    <p><input type="radio" id="ingredient2d" name="icecream" value="mustard">Mustard</p>
+                    <p><button type="submit" value="process">Submit</button></p>
+                    <!-- Answer: d-->
+                </form>
+
+                <form name="panini" method="post" onsubmit="return foodPanini()" id="form3">
+                    <p><input type="radio" id="ingredient3a" name="panini" value="tomatoes">Tomatoes</p>
+                    <p><input type="radio" id="ingredient3b" name="panini" value="whipped cream">Whipped Cream</p>
+                    <p><input type="radio" id="ingredient3c" name="panini" value="chicken">Chicken</p>
+                    <p><input type="radio" id="ingredient3d" name="panini" value="cheese">Cheese</p>
+                    <p><button type="submit" value="process">Submit</button></p>
+                    <!-- Answer: b -->
+                </form>
+
+                <form name="pizza" method="post" onsubmit="return foodPizza()" id="form4">
+                    <p><input type="radio" id="ingredient4a" name="pizza" value="sprinkles">Sprinkles</p>
+                    <p><input type="radio" id="ingredient4b" name="pizza" value="pepperoni">Pepperoni</p>
+                    <p><input type="radio" id="ingredient4c" name="pizza" value="cheese">Cheese</p>
+                    <p><input type="radio" id="ingredient4d" name="pizza" value="tomato sauce">Tomato Sauce</p>
+                    <p><button type="submit" value="process">Submit</button></p>
+                    <!-- Answer: a-->
+                </form>
+
+                <form name="salad" method="post" onsubmit="return foodSalad()" id="form5">
+                    <p><input type="radio" id="ingredient5a" name="salad" value="lettuce">Lettuce</p>
+                    <p><input type="radio" id="ingredient5b" name="salad" value="tomatoes">Tomatoes</p>
+                    <p><input type="radio" id="ingredient5c" name="salad" value="chocolate">Chocolate</p>
+                    <p><input type="radio" id="ingredient5d" name="salad" value="salt">Salt</p>
+                    <p><button type="submit" value="process">Submit</button></p>
+                    <!-- Answer: c-->
+                </form> 
+
+                <h3 id="wrong"></h3>
+            </div>
+        <!--</div>-->
+    </body>
+</html>
+<script>
+    var username = sessionStorage.getItem("name");
+    intro.innerHTML = "Hi " + username + "! What would you like to eat?";
+    
+    function foodchoice() {
+        var choice = document.food.food.value 
+        //alert(choice);
+        var eat = document.getElementById("eat");
+        if (choice == 1) {
+            eat.innerHTML = "You chose the burger! To move to the next level choose an ingredient that doesn't belong in a burger."
+            document.getElementById("startform").style.display = "none";
+            document.getElementById("form1").style.display = "block";
+        } else if (choice == 2) {
+            eat.innerHTML = "You chose the ice cream! To move to the next level choose an ingredient that doesn't belong in Ice Cream."
+            document.getElementById("startform").style.display = "none";
+            document.getElementById("form2").style.display = "block";
+        } else if (choice == 3) {
+            eat.innerHTML = "You chose the panini! To move to the next level choose an ingredient that doesn't belong in a panini."
+            document.getElementById("startform").style.display = "none";
+            document.getElementById("form3").style.display = "block";
+        } else if (choice == 4) {
+            eat.innerHTML = "You chose the pizza! To move to the next level choose an ingredient that doesn't belong in a pizza."
+            document.getElementById("startform").style.display = "none";
+            document.getElementById("form4").style.display = "block";
+        } else if (choice == 5) {
+            eat.innerHTML = "You chose the salad! To move to the next level choose an ingredient that doesn't belong in a salad."
+            document.getElementById("startform").style.display = "none";
+            document.getElementById("form5").style.display = "block";
+        }
+
+        return false;
+    }
+
+    function foodBurger() {
+        var answer = document.burger.burger.value
+        var wrong = document.getElementById("wrong");
+       //alert(answer);
+       if (answer == "apple") {
+        //alert("hi");
+        window.location = "level3.html";
+       } else {
+        wrong.innerHTML = "Wrong answer, try again."
+       }
+        return false;
+    }
+
+    
+    function foodIcecream() {
+        var answer = document.icecream.icecream.value
+        var wrong = document.getElementById("wrong");
+       //alert(answer);
+       if (answer == "mustard") {
+        //alert("hi");
+        window.location = "level3.html";
+       } else {
+        wrong.innerHTML = "Wrong answer, try again."
+       }
+        return false;
+    }
+    
+    function foodPanini() {
+        var answer = document.panini.panini.value
+        var wrong = document.getElementById("wrong");
+       //alert(answer);
+       if (answer == "whipped cream") {
+        //alert("hi");
+        window.location = "level3.html";
+       } else {
+        wrong.innerHTML = "Wrong answer, try again."
+       }
+        return false;
+    }
+
+    function foodPizza() {
+        var answer = document.pizza.pizza.value
+        var wrong = document.getElementById("wrong");
+       //alert(answer);
+       if (answer == "sprinkles") {
+        //alert("hi");
+        window.location = "level3.html";
+       } else {
+        wrong.innerHTML = "Wrong answer, try again."
+       }
+        return false;
+    }
+
+    function foodSalad() {
+        var answer = document.salad.salad.value
+        var wrong = document.getElementById("wrong");
+       //alert(answer);
+       if (answer == "chocolate") {
+        //alert("hi");
+        window.location = "level3.html";
+       } else {
+        wrong.innerHTML = "Wrong answer, try again."
+       }
+        return false;
+    }
+
+</script>
+
+<!--
+    1- burger
+    2- icecream
+    3- panini
+    4- pizza
+    5- salad 
+-->

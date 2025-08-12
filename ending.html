@@ -1,0 +1,27 @@
+<! doctype html>
+<html lang="en">
+    <head> 
+        <meta charset="utf-8">
+        <title>School Adventure - The End</title>
+        <link rel="stylesheet" href="css/main.css" type="text/css"/>
+        <style>
+        body{
+            background-color: #e9dbfa;
+            background-image: url(../ribe_A3_javascript_adventure/images/indexback.jpg);
+        }
+        </style>
+    </head>
+    <body>
+            <div id="container">
+                <h1 class="end">A Day in School</h1>
+                <h2 id="intro" class="end">!</h2>
+                <img src="images/diploma.png" alt="a diploma" width="300" class="end">
+            </div>
+    </body>
+
+</html>
+<script>
+    var username = sessionStorage.getItem("name");
+    var intro = document.getElementById("intro");
+    intro.innerHTML = "Congratulations " + username + "! You completed your day at school! Here's your diploma!";
+</script>
