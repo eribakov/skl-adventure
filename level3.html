@@ -24,11 +24,11 @@
                     <p>The moon looks so beautiful.</p>
                     <p> <input type="radio" id="q1a" name="q1" value="a" required/>Looks</p>
                     <p> <input type="radio" id="q1b" name="q1" value="b">Moon</p>
-                    <p> <input type="radio" id="q1c" name="q1" value="c"electricity"">The</p>
+                    <p> <input type="radio" id="q1c" name="q1" value="c">The</p>
                     <p> <input type="radio" id="q1d" name="q1" value="d">Beautiful</p>
                     <!-- Answer: b-->
 
-                    <li>Identify the pronoun in the followuing sentence:</li>
+                    <li>Identify the pronoun in the following sentence:</li>
                     <p>Everyone is sleeping in the dorm room.</p>
                     <p> <input type="radio" id="q2a" name="q2" value="a" required/>Sleeping</p>
                     <p> <input type="radio" id="q2b" name="q2" value="b">Dorm</p>
@@ -70,6 +70,8 @@
 </html>
 <script>
 
+    var mistakes = parseInt(sessionStorage.getItem("mistakes") || "0", 10);
+
     function englishclass(){
             var lost = document.getElementById("lost")
             var qo = document.english.q1.value;
@@ -87,6 +89,8 @@
                     window.location = "ending.html";
                 } else {
                     //alert("womp");
+                    mistakes++;
+                    sessionStorage.setItem("mistakes", mistakes);
                     lost.innerHTML = "Sorry, you did not get all of them right, try again."
                 }
         return false;

@@ -89,6 +89,9 @@
         
         var username = sessionStorage.getItem("name");
         intro.innerHTML = "Hi " + username + "! Welcome to School";
+
+        var mistakes = parseInt(sessionStorage.getItem("mistakes")  || "0", 10);
+
         
         function startgame() {
             document.getElementById("form1").style.display = "none";
@@ -97,6 +100,8 @@
         }
 
         function mathclass () {
+            let mistakes = 0
+
             var qo = document.game1.q1.value;
             //alert(qo);
             var qt = document.game1.q2.value;
@@ -117,8 +122,11 @@
                 document.getElementById("form3").style.display = "block";
             } else {
                 //alert("womp");
+                mistakes++;
+                sessionStorage.setItem("mistakes", mistakes);
                 lost.innerHTML ="Sorry, you did not get all of them right, try again."
             }
+            
             return false; 
         }
 

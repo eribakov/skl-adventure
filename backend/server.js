@@ -5,26 +5,25 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Example route to test
-app.get('/', (req, res) => {
-  res.send('Backend is running!');
-});
+let players = [];
 
-// Example POST to save score
-let scores = []; // Temporary in-memory "database"
-app.post('/score', (req, res) => {
-  const { name, score } = req.body;
-  if (!name || score === undefined) {
-    return res.status(400).json({ error: 'Name and score are required' });
+app.post('/result', (req, res) => {
+  const { name, mistakes } = req.body;
+  if (!name || mistakes === undefined) {
+    return res.status(400).json({ error: 'Name and mistakes are required' });
   }
-  scores.push({ name, score });
-  res.json({ success: true });
+  players.push({ name, mistakes });
+  console.log(`New result: ${name}, mistakes: ${mistakes}`);
+  res.json({ success: true, message: "Result saved" });
 });
 
-// Example GET to see leaderboard
 app.get('/leaderboard', (req, res) => {
-  const sorted = [...scores].sort((a, b) => b.score - a.score);
+  const sorted = [...players].sort((a, b) => a.mistakes - b.mistakes);
   res.json(sorted);
+});
+
+app.get('/', (req, res) => {
+  res.send('School Adventure Backend is running!');
 });
 
 const PORT = 3000;

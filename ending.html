@@ -22,6 +22,7 @@
 </html>
 <script>
     var username = sessionStorage.getItem("name");
+    var mistakes =parseInt(sessionStorage.getItem("mistakes")) || 0;
     var intro = document.getElementById("intro");
-    intro.innerHTML = "Congratulations " + username + "! You completed your day at school! Here's your diploma!";
+    intro.innerHTML = "Congratulations " + username + "! You completed your day at school! Here's your diploma!, You made a total of", + mistakes + "mistakes.";
 </script>

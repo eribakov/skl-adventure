@@ -18,7 +18,7 @@
                 <h2 id="intro"></h2>
                 <p>Catch the cafe lady when she's not moving and give her your lunch pass to get your lunch!</p>
                 <p>Click on the cafe lady to continue!</p>
-            <a href="level22.html"><img src="images/lunchlady.png" alt="picture of lunch lady" height="150" id="lunchlady"></a>
+            <a id="lunchlady" href="level22.html"><img src="images/lunchlady.png" alt="picture of lunch lady" height="150" id="lunchlady"></a>
             <p id="lunchpass"></p>
             </div>
     </body>
@@ -29,4 +29,15 @@
     
     var pass = sessionStorage.getItem("lunch");
     lunchpass.innerHTML = pass
+
+    var mistakes = parseInt(sessionStorage.getItem("mistakes") || "0", 10);
+
+    document.body.addEventListener("click", function(e){
+        if (!e.target.closest("#lunchlady")){
+            let mistakes = parseInt(sessionStorage.getItem("mistakes") || "0" , 10);
+            mistakes++;
+            sessionStorage.setItem("mistakes", mistakes);
+            alert("Wrong click, try again.")
+        }
+    })
 </script>
