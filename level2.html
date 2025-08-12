@@ -1,42 +1,47 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>School Adventure - Cafeteria</title>
-        <link rel="stylesheet" href="css/main.css" type="text/css"/>
-        <style>
-        body{
+
+<head>
+    <meta charset="utf-8">
+    <title>School Adventure - Cafeteria</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <style>
+        body {
             background-color: #e9dbfa;
             background-image: url(../ribe_A3_javascript_adventure/images/cafeteriaback.jpg);
 
         }
-        </style>
-    </head>
-    <body>
-            <div id="container">
-                <h1>A Day in School</h1>
-                <h2 id="intro"></h2>
-                <p>Catch the cafe lady when she's not moving and give her your lunch pass to get your lunch!</p>
-                <p>Click on the cafe lady to continue!</p>
-            <a id="lunchlady" href="level22.html"><img src="images/lunchlady.png" alt="picture of lunch lady" height="150" id="lunchlady"></a>
-            <p id="lunchpass"></p>
-            </div>
-    </body>
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>A Day in School</h1>
+        <h2 id="intro"></h2>
+        <p>Catch the cafe lady when she's not moving and give her your lunch pass to get your lunch!</p>
+        <p>Click on the cafe lady to continue!</p>
+        <a id="lunchlady" href="level22.html"><img src="images/lunchlady.png" alt="picture of lunch lady" height="150"
+                id="lunchlady"></a>
+        <p id="lunchpass"></p>
+    </div>
+</body>
+
 </html>
 <script>
     var username = sessionStorage.getItem("name");
     intro.innerHTML = "Hi " + username + "! Welcome to The Cafeteria";
-    
+
     var pass = sessionStorage.getItem("lunch");
     lunchpass.innerHTML = pass
 
     var mistakes = parseInt(sessionStorage.getItem("mistakes") || "0", 10);
 
-    document.body.addEventListener("click", function(e){
-        if (!e.target.closest("#lunchlady")){
-            let mistakes = parseInt(sessionStorage.getItem("mistakes") || "0" , 10);
-            mistakes++;
-            sessionStorage.setItem("mistakes", mistakes);
+    document.body.addEventListener("click", function (e) {
+        if (!e.target.closest("#lunchlady")) {
+            var currentMistakes = parseInt(sessionStorage.getItem("mistakes") || "0", 10);
+            currentMistakes++;
+            sessionStorage.setItem("mistakes", currentMistakes);
+            console.log("Level 2 - Mistake made. New count:", currentMistakes);
             alert("Wrong click, try again.")
         }
     })

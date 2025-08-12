@@ -1,28 +1,35 @@
 <! doctype html>
-<html lang="en">
-    <head> 
+    <html lang="en">
+
+    <head>
         <meta charset="utf-8">
         <title>School Adventure - The End</title>
-        <link rel="stylesheet" href="css/main.css" type="text/css"/>
+        <link rel="stylesheet" href="css/main.css" type="text/css" />
         <style>
-        body{
-            background-color: #e9dbfa;
-            background-image: url(../ribe_A3_javascript_adventure/images/indexback.jpg);
-        }
+            body {
+                background-color: #e9dbfa;
+                background-image: url(../ribe_A3_javascript_adventure/images/indexback.jpg);
+            }
         </style>
     </head>
+
     <body>
-            <div id="container">
-                <h1 class="end">A Day in School</h1>
-                <h2 id="intro" class="end">!</h2>
-                <img src="images/diploma.png" alt="a diploma" width="300" class="end">
-            </div>
+        <div id="container">
+            <h1 class="end">A Day in School</h1>
+            <h2 id="intro" class="end">!</h2>
+            <img src="images/diploma.png" alt="a diploma" width="300" class="end">
+        </div>
     </body>
 
-</html>
-<script>
-    var username = sessionStorage.getItem("name");
-    var mistakes =parseInt(sessionStorage.getItem("mistakes")) || 0;
-    var intro = document.getElementById("intro");
-    intro.innerHTML = "Congratulations " + username + "! You completed your day at school! Here's your diploma!, You made a total of", + mistakes + "mistakes.";
-</script>
+    </html>
+    <script>
+        var username = sessionStorage.getItem("name");
+        var mistakes = parseInt(sessionStorage.getItem("mistakes")) || 0;
+        var intro = document.getElementById("intro");
+
+        // Debug: Log the mistake count to console
+        console.log("Final mistake count:", mistakes);
+        console.log("Raw sessionStorage value:", sessionStorage.getItem("mistakes"));
+
+        intro.innerHTML = "Congratulations " + username + "! You completed your day at school! Here's your diploma! You made a total of " + mistakes + " mistakes.";
+    </script>

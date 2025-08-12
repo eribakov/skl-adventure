@@ -1,138 +1,143 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>School Adventure - Math Class</title>
-        <style>
-        #form2{
+
+<head>
+    <meta charset="utf-8">
+    <title>School Adventure - Math Class</title>
+    <style>
+        #form2 {
             display: none;
         }
+
         #form3 {
             display: none;
         }
+
         body {
             background-color: #e9dbfa;
             background-image: url(../ribe_A3_javascript_adventure/images/classback.jpg);
-        } 
-        </style>
-        <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    </head>
-    <body>
-            <div id="container">
-                <form name="start" method="post" id="form1" onsubmit="return startgame()">
-                <h1>A Day in School</h1>
-                <h2 id="intro"></h2>
-                <p>Get through 3 challenges to complete your day!</p>
-                <p>Your challenges:</p>
-                <ol>
-                    <li>Math Class: Complete various math problems to advance to the next level!</li>
-                    <li>Lunch: Get your food in time without any complications!</li>
-                    <li>English: Answer all the questions in order to complete your day!</li>
-                </ol>
-                    <p>Click "Start" to start the game!</p>
-                    <p><button type="submit" value="process">Start</button></p>
-                </form>
-                <form name="game1" method="post" onsubmit="return mathclass()" id="form2"> 
-                    <h1>A Day in High School</h1>
-                    <h3>Welcome to your first challenge: Math Class</h3> 
-                    <p>Answer 5 Questions to get a lunch pass!</p>
-                    <ol>
-                        <li>Which of the following rational numbers are equivalent?</li>
-                        <p>A: 2.7, B: 7.2, C: 27 / 10 , D: -72 / 10</p>
-                        <p> <input type="radio" id="q1a" name="q1" value="a" required/>A and B</p>
-                        <p> <input type="radio" id="q1b" name="q1" value="b">B and D</p>
-                        <p> <input type="radio" id="q1c" name="q1" value="c"electricity"">C and D</p>
-                        <p> <input type="radio" id="q1d" name="q1" value="d">A and C</p>
-                        <!-- Answer: d-->
+        }
+    </style>
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+</head>
 
-                        <li>Evaluate -4.2 + (-3.8).</li>
-                        <p> <input type="radio" id="q2a" name="q2" value="a" required/>-8</p>
-                        <p> <input type="radio" id="q2b" name="q2" value="b">-0.4</p>
-                        <p> <input type="radio" id="q2c" name="q2" value="c">8</p>
-                        <p> <input type="radio" id="q2d" name="q2" value="d">0.4</p>
-                        <!-- Answer: a -->
+<body>
+    <div id="container">
+        <form name="start" method="post" id="form1" onsubmit="return startgame()">
+            <h1>A Day in School</h1>
+            <h2 id="intro"></h2>
+            <p>Get through 3 challenges to complete your day!</p>
+            <p>Your challenges:</p>
+            <ol>
+                <li>Math Class: Complete various math problems to advance to the next level!</li>
+                <li>Lunch: Get your food in time without any complications!</li>
+                <li>English: Answer all the questions in order to complete your day!</li>
+            </ol>
+            <p>Click "Start" to start the game!</p>
+            <p><button type="submit" value="process">Start</button></p>
+        </form>
+        <form name="game1" method="post" onsubmit="return mathclass()" id="form2">
+            <h1>A Day in High School</h1>
+            <h3>Welcome to your first challenge: Math Class</h3>
+            <p>Answer 5 Questions to get a lunch pass!</p>
+            <ol>
+                <li>Which of the following rational numbers are equivalent?</li>
+                <p>A: 2.7, B: 7.2, C: 27 / 10 , D: -72 / 10</p>
+                <p> <input type="radio" id="q1a" name="q1" value="a" required />A and B</p>
+                <p> <input type="radio" id="q1b" name="q1" value="b">B and D</p>
+                <p> <input type="radio" id="q1c" name="q1" value="c" electricity"">C and D</p>
+                <p> <input type="radio" id="q1d" name="q1" value="d">A and C</p>
+                <!-- Answer: d-->
 
-                        <li>Calculate the exact answer. -2.1 + (-3.33) + 2.01.</li>
-                        <p> <input type="radio" id="q3a" name="q3" value="a" required/>-3.24</p>
-                        <p> <input type="radio" id="q3b" name="q3" value="b">7.44</p>
-                        <p> <input type="radio" id="q3c" name="q3" value="c">-3.42</p>
-                        <p> <input type="radio" id="q3d" name="q3" value="d">3.33</p>
-                        <!-- Answer: c -->
-                
-                        <li>Evaluate (-8)3.</li>
-                        <p> <input type="radio" id="q4a" name="q4" value="a" required/>512</p>
-                        <p> <input type="radio" id="q4b" name="q4" value="b">24</p>
-                        <p> <input type="radio" id="q4c" name="q4" value="c">-512</p>
-                        <p> <input type="radio" id="q4d" name="q4" value="d">-24</p>
-                        <!-- Answer: d -->
+                <li>Evaluate -4.2 + (-3.8).</li>
+                <p> <input type="radio" id="q2a" name="q2" value="a" required />-8</p>
+                <p> <input type="radio" id="q2b" name="q2" value="b">-0.4</p>
+                <p> <input type="radio" id="q2c" name="q2" value="c">8</p>
+                <p> <input type="radio" id="q2d" name="q2" value="d">0.4</p>
+                <!-- Answer: a -->
 
-                        <li>Determine the solution to the equation 18/x = 9.</li>
-                        <p> <input type="radio" id="q5a" name="q5" value="a" required/>2</p>
-                        <p> <input type="radio" id="q5b" name="q5" value="b">11</p>
-                        <p> <input type="radio" id="q5c" name="q5" value="c">8</p>
-                        <p> <input type="radio" id="q5d" name="q5" value="d">15</p>
-                        <!-- Answer: a -->
+                <li>Calculate the exact answer. -2.1 + (-3.33) + 2.01.</li>
+                <p> <input type="radio" id="q3a" name="q3" value="a" required />-3.24</p>
+                <p> <input type="radio" id="q3b" name="q3" value="b">7.44</p>
+                <p> <input type="radio" id="q3c" name="q3" value="c">-3.42</p>
+                <p> <input type="radio" id="q3d" name="q3" value="d">3.33</p>
+                <!-- Answer: c -->
 
-                        <p><button type="submit" value="process">Submit</button></p>
-                    </ol>
-                </form>
-                <h3 id="lost"></h3>
+                <li>Evaluate (-8)3.</li>
+                <p> <input type="radio" id="q4a" name="q4" value="a" required />512</p>
+                <p> <input type="radio" id="q4b" name="q4" value="b">24</p>
+                <p> <input type="radio" id="q4c" name="q4" value="c">-512</p>
+                <p> <input type="radio" id="q4d" name="q4" value="d">-24</p>
+                <!-- Answer: d -->
 
-                <form name="moveon" method="post" onsubmit="return level2()" id="form3">
-                    <h3 id="congrats"></h3>
-                    <figure id="lunchpass"></figure>
-                    <p><button type="submit" value="process">Continue</button></p>
-                </form>
-            </div>
-    </body>
-    <script>
-        
-        var username = sessionStorage.getItem("name");
-        intro.innerHTML = "Hi " + username + "! Welcome to School";
+                <li>Determine the solution to the equation 18/x = 9.</li>
+                <p> <input type="radio" id="q5a" name="q5" value="a" required />2</p>
+                <p> <input type="radio" id="q5b" name="q5" value="b">11</p>
+                <p> <input type="radio" id="q5c" name="q5" value="c">8</p>
+                <p> <input type="radio" id="q5d" name="q5" value="d">15</p>
+                <!-- Answer: a -->
 
-        var mistakes = parseInt(sessionStorage.getItem("mistakes")  || "0", 10);
+                <p><button type="submit" value="process">Submit</button></p>
+            </ol>
+        </form>
+        <h3 id="lost"></h3>
 
-        
-        function startgame() {
-            document.getElementById("form1").style.display = "none";
-            document.getElementById("form2").style.display = "block";
-            return false;
+        <form name="moveon" method="post" onsubmit="return level2()" id="form3">
+            <h3 id="congrats"></h3>
+            <figure id="lunchpass"></figure>
+            <p><button type="submit" value="process">Continue</button></p>
+        </form>
+    </div>
+</body>
+<script>
+
+    var username = sessionStorage.getItem("name");
+    intro.innerHTML = "Hi " + username + "! Welcome to School";
+
+    var mistakes = parseInt(sessionStorage.getItem("mistakes") || "0", 10);
+
+
+    function startgame() {
+        document.getElementById("form1").style.display = "none";
+        document.getElementById("form2").style.display = "block";
+        return false;
+    }
+
+    function mathclass() {
+        var qo = document.game1.q1.value;
+        //alert(qo);
+        var qt = document.game1.q2.value;
+        //alert(qt);
+        var qh = document.game1.q3.value;
+        //alert(qh);
+        var qf = document.game1.q4.value;
+        //alert(qf);
+        var qi = document.game1.q5.value;
+        //alert(qi);
+        if (qo == "d" && qt == "a" && qh == "c" && qf == "d" && qi == "a") {
+            //alert("yay");
+            congrats.innerHTML = "Congratulations! You got your lunch pass! Click continue to head to the next level";
+            lunchpass.innerHTML = "<img src='images/lunchpass.png' alt='photo of lunchpass' height='200'>";
+            sessionStorage.setItem("lunch", "<img src='images/lunchpass.png' alt='photo of lunchpass' height='200'>");
+            document.getElementById("form2").style.display = "none";
+            document.getElementById("lost").style.display = "none";
+            document.getElementById("form3").style.display = "block";
+        } else {
+            //alert("womp");
+            var currentMistakes = parseInt(sessionStorage.getItem("mistakes") || "0", 10);
+            currentMistakes++;
+            sessionStorage.setItem("mistakes", currentMistakes);
+            console.log("Level 1 - Mistake made. New count:", currentMistakes);
+            lost.innerHTML = "Sorry, you did not get all of them right, try again."
         }
 
-        function mathclass () {
-            let mistakes = 0
+        return false;
+    }
 
-            var qo = document.game1.q1.value;
-            //alert(qo);
-            var qt = document.game1.q2.value;
-            //alert(qt);
-            var qh = document.game1.q3.value;
-            //alert(qh);
-            var qf = document.game1.q4.value;
-            //alert(qf);
-            var qi = document.game1.q5.value;
-            //alert(qi);
-            if (qo == "d" && qt == "a" && qh == "c" && qf == "d" && qi == "a") {
-                //alert("yay");
-                congrats.innerHTML = "Congratulations! You got your lunch pass! Click continue to head to the next level";
-                lunchpass.innerHTML = "<img src='images/lunchpass.png' alt='photo of lunchpass' height='200'>";
-                sessionStorage.setItem("lunch", "<img src='images/lunchpass.png' alt='photo of lunchpass' height='200'>");
-                document.getElementById("form2").style.display = "none";
-                document.getElementById("lost").style.display = "none";
-                document.getElementById("form3").style.display = "block";
-            } else {
-                //alert("womp");
-                mistakes++;
-                sessionStorage.setItem("mistakes", mistakes);
-                lost.innerHTML ="Sorry, you did not get all of them right, try again."
-            }
-            
-            return false; 
-        }
+    function level2() {
+        window.location = "level2.html";
+        return false;
+    }
+</script>
 
-        function level2() {
-            window.location = "level2.html";
-            return false;
-        }
-    </script>
 </html>

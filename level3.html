@@ -1,98 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>School Adventure - English Class</title>
-        <link rel="stylesheet" href="css/main.css" type="text/css"/>
-        <style>
-        body{
+
+<head>
+    <meta charset="utf-8">
+    <title>School Adventure - English Class</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <style>
+        body {
             background-color: #e9dbfa;
             background-image: url(../ribe_A3_javascript_adventure/images/classback.jpg);
         }
-        </style>
-    </head>
-    <body>
-        <!--<div id="background">-->
-            <div id="container">
-                <h1>A Day in School</h1>
-                <h2>You made it to the last level!</h2>
-                <form name="english" method="post" onsubmit="return englishclass()" id="form2"> 
-                <h3>Welcome to English! Your last class of the day</h3>
-                <p>Answer these 5 Questions correctly to get a finish the game!</p>
-                <ol>
-                    <li>Identify the noun in the following sentence:</li>
-                    <p>The moon looks so beautiful.</p>
-                    <p> <input type="radio" id="q1a" name="q1" value="a" required/>Looks</p>
-                    <p> <input type="radio" id="q1b" name="q1" value="b">Moon</p>
-                    <p> <input type="radio" id="q1c" name="q1" value="c">The</p>
-                    <p> <input type="radio" id="q1d" name="q1" value="d">Beautiful</p>
-                    <!-- Answer: b-->
+    </style>
+</head>
 
-                    <li>Identify the pronoun in the following sentence:</li>
-                    <p>Everyone is sleeping in the dorm room.</p>
-                    <p> <input type="radio" id="q2a" name="q2" value="a" required/>Sleeping</p>
-                    <p> <input type="radio" id="q2b" name="q2" value="b">Dorm</p>
-                    <p> <input type="radio" id="q2c" name="q2" value="c">Room</p>
-                    <p> <input type="radio" id="q2d" name="q2" value="d">Everyone</p>
-                    <!-- Answer: d -->
+<body>
+    <!--<div id="background">-->
+    <div id="container">
+        <h1>A Day in School</h1>
+        <h2>You made it to the last level!</h2>
+        <form name="english" method="post" onsubmit="return englishclass()" id="form2">
+            <h3>Welcome to English! Your last class of the day</h3>
+            <p>Answer these 5 Questions correctly to get a finish the game!</p>
+            <ol>
+                <li>Identify the noun in the following sentence:</li>
+                <p>The moon looks so beautiful.</p>
+                <p> <input type="radio" id="q1a" name="q1" value="a" required />Looks</p>
+                <p> <input type="radio" id="q1b" name="q1" value="b">Moon</p>
+                <p> <input type="radio" id="q1c" name="q1" value="c">The</p>
+                <p> <input type="radio" id="q1d" name="q1" value="d">Beautiful</p>
+                <!-- Answer: b-->
 
-                    <li>Identify the verb in the following sentence:</li>
-                    <p>Please open the door.</p>
-                    <p> <input type="radio" id="q3a" name="q3" value="a" required/>Open</p>
-                    <p> <input type="radio" id="q3b" name="q3" value="b">The</p>
-                    <p> <input type="radio" id="q3c" name="q3" value="c">Please</p>
-                    <p> <input type="radio" id="q3d" name="q3" value="d">Door</p>
-                    <!-- Answer: a -->
-                
-                    <li>Identify the adverb in the following sentence:</li>
-                    <p>They ran quickly to catch the bus.</p>
-                    <p> <input type="radio" id="q4a" name="q4" value="a" required/>Catch</p>
-                    <p> <input type="radio" id="q4b" name="q4" value="b">Ran</p>
-                    <p> <input type="radio" id="q4c" name="q4" value="c">Quickly</p>
-                    <p> <input type="radio" id="q4d" name="q4" value="d">Bus</p>
-                    <!-- Answer: c -->
+                <li>Identify the pronoun in the following sentence:</li>
+                <p>Everyone is sleeping in the dorm room.</p>
+                <p> <input type="radio" id="q2a" name="q2" value="a" required />Sleeping</p>
+                <p> <input type="radio" id="q2b" name="q2" value="b">Dorm</p>
+                <p> <input type="radio" id="q2c" name="q2" value="c">Room</p>
+                <p> <input type="radio" id="q2d" name="q2" value="d">Everyone</p>
+                <!-- Answer: d -->
 
-                    <li>Identify the adjective in the following sentence:</li>
-                    <p>A colorful butterfly was sitting in the garden.</p>
-                    <p> <input type="radio" id="q5a" name="q5" value="a" required/>Garden</p>
-                    <p> <input type="radio" id="q5b" name="q5" value="b">Colorful</p>
-                    <p> <input type="radio" id="q5c" name="q5" value="c">Sitting</p>
-                    <p> <input type="radio" id="q5d" name="q5" value="d">Butterfly</p>
-                    <!-- Answer: b -->
+                <li>Identify the verb in the following sentence:</li>
+                <p>Please open the door.</p>
+                <p> <input type="radio" id="q3a" name="q3" value="a" required />Open</p>
+                <p> <input type="radio" id="q3b" name="q3" value="b">The</p>
+                <p> <input type="radio" id="q3c" name="q3" value="c">Please</p>
+                <p> <input type="radio" id="q3d" name="q3" value="d">Door</p>
+                <!-- Answer: a -->
 
-                    <p><button type="submit" value="process">Submit</button></p>
-                </ol>
-            </form>
-            <h3 id="lost"></h3>
-            </div>
-        <!--</div>-->
-    </body>
+                <li>Identify the adverb in the following sentence:</li>
+                <p>They ran quickly to catch the bus.</p>
+                <p> <input type="radio" id="q4a" name="q4" value="a" required />Catch</p>
+                <p> <input type="radio" id="q4b" name="q4" value="b">Ran</p>
+                <p> <input type="radio" id="q4c" name="q4" value="c">Quickly</p>
+                <p> <input type="radio" id="q4d" name="q4" value="d">Bus</p>
+                <!-- Answer: c -->
+
+                <li>Identify the adjective in the following sentence:</li>
+                <p>A colorful butterfly was sitting in the garden.</p>
+                <p> <input type="radio" id="q5a" name="q5" value="a" required />Garden</p>
+                <p> <input type="radio" id="q5b" name="q5" value="b">Colorful</p>
+                <p> <input type="radio" id="q5c" name="q5" value="c">Sitting</p>
+                <p> <input type="radio" id="q5d" name="q5" value="d">Butterfly</p>
+                <!-- Answer: b -->
+
+                <p><button type="submit" value="process">Submit</button></p>
+            </ol>
+        </form>
+        <h3 id="lost"></h3>
+    </div>
+    <!--</div>-->
+</body>
+
 </html>
 <script>
 
     var mistakes = parseInt(sessionStorage.getItem("mistakes") || "0", 10);
 
-    function englishclass(){
-            var lost = document.getElementById("lost")
-            var qo = document.english.q1.value;
-            //alert(qo);
-            var qt = document.english.q2.value;
-            //alert(qt);
-            var qh = document.english.q3.value;
-            //alert(qh);
-            var qf = document.english.q4.value;
-            //alert(qf);
-            var qi = document.english.q5.value;
+    function englishclass() {
+        var lost = document.getElementById("lost")
+        var qo = document.english.q1.value;
+        //alert(qo);
+        var qt = document.english.q2.value;
+        //alert(qt);
+        var qh = document.english.q3.value;
+        //alert(qh);
+        var qf = document.english.q4.value;
+        //alert(qf);
+        var qi = document.english.q5.value;
 
-                if (qo == "b" && qt == "d" && qh == "a" && qf == "c" && qi == "b") {
-                    //alert("yay");
-                    window.location = "ending.html";
-                } else {
-                    //alert("womp");
-                    mistakes++;
-                    sessionStorage.setItem("mistakes", mistakes);
-                    lost.innerHTML = "Sorry, you did not get all of them right, try again."
-                }
+        if (qo == "b" && qt == "d" && qh == "a" && qf == "c" && qi == "b") {
+            //alert("yay");
+            window.location = "ending.html";
+        } else {
+            //alert("womp");
+            var currentMistakes = parseInt(sessionStorage.getItem("mistakes") || "0", 10);
+            currentMistakes++;
+            sessionStorage.setItem("mistakes", currentMistakes);
+            console.log("Level 3 - Mistake made. New count:", currentMistakes);
+            lost.innerHTML = "Sorry, you did not get all of them right, try again."
+        }
         return false;
     }
 
